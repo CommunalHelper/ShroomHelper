@@ -83,7 +83,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             orig(self);
             ShroomHelperModule.Session.beforeRefillDashCount++;
             if (ShroomHelperModule.Session.beforeRefillDashCount > 1) {
-                ShroomHelperModule.Session.brokeDashLimitInRoom = false;
+                ShroomHelperModule.Session.brokeDashLimitInRoom = true;
             }
 
             return Player.StDash;
