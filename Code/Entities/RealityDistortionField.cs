@@ -1,64 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using Celeste.Mod.Entities;
+﻿using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using Monocle;
+using System.Collections;
 
-namespace Celeste.Mod.ShroomHelper.Entities
-{
+namespace Celeste.Mod.ShroomHelper.Entities {
     [CustomEntity("ShroomHelper/RealityDistortionField")]
     [Tracked(false)]
-    public class RealityDistortionField : Entity
-    {
+    public class RealityDistortionField : Entity {
         public float rippleAreaMultiplier;
-
         public uint Seed;
         public uint Seed2;
-
-        private bool glitcherAdded;
-        private bool active = true;
-
         public float floatingOpacity = 0.01f;
 
-        public RealityDistortionField(EntityData data, Vector2 offset) : base(data.Position + offset)
-        {
+        private readonly bool active = true;
+        private bool glitcherAdded;
+
+        public RealityDistortionField(EntityData data, Vector2 offset) 
+            : base(data.Position + offset) {
             rippleAreaMultiplier = data.Float("rippleAreaMultiplier", 1.0f);
-            base.Depth = 2000;
+            Depth = 2000;
         }
 
-        public override void Added(Scene scene)
-        {
-            base.Added(scene);
-        }
-
-        public override void Removed(Scene scene)
-        {
-            base.Removed(scene);
-        }
-
-        public override void Update()
-        {
-            if (!glitcherAdded)
-            {
-                Add(new Coroutine(glitchEffect()));
+        public override void Update() {
+            if (!glitcherAdded) {
+                Add(new Coroutine(GlitchEffect()));
             }
+
             base.Update();
         }
 
-        private IEnumerator glitchEffect()
-        {
+        private IEnumerator GlitchEffect() {
             glitcherAdded = true;
-            Level level = base.Scene as Level;
-            float width = base.Width;
-            float height = base.Height;
-            while (active)
-            {
-                level.Displacement.AddBurst(base.Center, 10f * (rippleAreaMultiplier / 6.0f), 0f, width + 10f * rippleAreaMultiplier, 0.8f);
+            Level level = Scene as Level;
+            float width = Width;
+            float height = Height;
+            while (active) {
+                level.Displacement.AddBurst(Center, 10f * (rippleAreaMultiplier / 6.0f), 0f, width + (10f * rippleAreaMultiplier), 0.8f);
                 yield return 5;
             }
+
             glitcherAdded = false;
             yield return true;
         }

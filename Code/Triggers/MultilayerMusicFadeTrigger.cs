@@ -1,15 +1,13 @@
 ﻿using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
-using System;
-using Monocle;
 
-namespace Celeste.Mod.ShroomHelper.Triggers
-{
+namespace Celeste.Mod.ShroomHelper.Triggers {
     [CustomEntity("ShroomHelper/MultilayerMusicFadeTrigger")]
-    class MultilayerMusicFadeTrigger : Trigger
-    {
+    public class MultilayerMusicFadeTrigger : Trigger {
 
         public string trackEvent;
+        public bool persistent;
+        public bool destroyOnLeave;
 
         public string P1;
         public float P1From;
@@ -28,11 +26,8 @@ namespace Celeste.Mod.ShroomHelper.Triggers
 
         private EntityID id;
 
-        public bool persistent;
-        public bool destroyOnLeave;
-
-        public MultilayerMusicFadeTrigger(EntityData data, Vector2 offset) : base(data, offset)
-        {
+        public MultilayerMusicFadeTrigger(EntityData data, Vector2 offset) 
+            : base(data, offset) {
             id = new EntityID(data.Level.Name, data.ID);
 
             trackEvent = data.Attr("trackEvent", "");
@@ -56,55 +51,44 @@ namespace Celeste.Mod.ShroomHelper.Triggers
             persistent = data.Bool("persistent");
         }
 
-        public override void OnEnter(Player player)
-        {
+        public override void OnEnter(Player player) {
             base.OnEnter(player);
-            if (!string.IsNullOrEmpty(trackEvent))
-            {
+            if (!string.IsNullOrEmpty(trackEvent)) {
                 Session session = SceneAs<Level>().Session;
                 session.Audio.Music.Event = SFX.EventnameByHandle(trackEvent);
                 session.Audio.Apply(forceSixteenthNoteHack: false);
             }
         }
 
-        public override void OnStay(Player player)
-        {
+        public override void OnStay(Player player) {
             float parameterValue1 = MathHelper.Lerp(P1From, P1To, GetPositionLerp(player, P1Direction));
-            if (!string.IsNullOrEmpty(P1))
-            {
+            if (!string.IsNullOrEmpty(P1)) {
                 Audio.SetMusicParam(P1, parameterValue1);
             }
 
             float parameterValue2 = MathHelper.Lerp(P2From, P2To, GetPositionLerp(player, P2Direction));
-            if (!string.IsNullOrEmpty(P2))
-            {
+            if (!string.IsNullOrEmpty(P2)) {
                 Audio.SetMusicParam(P2, parameterValue2);
             }
 
             float parameterValue3 = MathHelper.Lerp(P3From, P3To, GetPositionLerp(player, P3Direction));
-            if (!string.IsNullOrEmpty(P3))
-            {
+            if (!string.IsNullOrEmpty(P3)) {
                 Audio.SetMusicParam(P3, parameterValue3);
             }
-
         }
 
-        public override void OnLeave(Player player)
-        {
+        public override void OnLeave(Player player) {
             base.OnLeave(player);
 
-            if (destroyOnLeave)
-            {
+            if (destroyOnLeave) {
                 Remove();
             }
         }
 
-        public void Remove()
-        {
+        public void Remove() {
             RemoveSelf();
 
-            if (persistent)
-            {
+            if (persistent) {
                 Level level = SceneAs<Level>();
                 level.Session.DoNotLoad.Add(id);
             }

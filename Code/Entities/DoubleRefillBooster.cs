@@ -1,63 +1,51 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Celeste.Mod.Entities;
+using Microsoft.Xna.Framework;
 using Monocle;
-using Celeste.Mod.Entities;
 using MonoMod.Utils;
 
-namespace Celeste.Mod.ShroomHelper.Entities
-{
+namespace Celeste.Mod.ShroomHelper.Entities {
     [CustomEntity("ShroomHelper/DoubleRefillBooster")]
-    public class DoubleRefillBooster : Booster
-    {
-        protected DynData<Booster> baseData;
-        private BloomPoint bloom;
+    public class DoubleRefillBooster : Booster {
+        protected DynamicData baseData;
 
         public DoubleRefillBooster(Vector2 position, bool red)
-            : base(position, red)
-        {
-            baseData = new DynData<Booster>(this);
+            : base(position, red) {
+            baseData = new DynamicData(typeof(Booster), this);
         }
 
         public DoubleRefillBooster(EntityData data, Vector2 offset)
-            : this(data.Position + offset, true)
-        {
+            : this(data.Position + offset, true) {
         }
 
-        public override void Awake(Scene scene)
-        {
+        public static void Load() {
+            On.Celeste.Player.RedBoost += Player_RedBoost;
+        }
+
+        public static void Unload() {
+            On.Celeste.Player.RedBoost -= Player_RedBoost;
+        }
+
+        public override void Awake(Scene scene) {
             base.Awake(scene);
             Sprite sprite = baseData.Get<Sprite>("sprite");
             Remove(sprite);
             sprite = ShroomHelperModule.spriteBank.Create("ShroomHelperDoubleRefillBooster");
             sprite.Play("loop");
-            baseData["sprite"] = sprite;
+            baseData.Set("sprite", sprite);
             Add(sprite);
-            Add(bloom = new BloomPoint(0.8f, 24f));
+            Add(new BloomPoint(0.8f, 24f));
         }
 
-        public override void Update()
-        {
+        public override void Update() {
             base.Update();
-            if (base.Scene.OnInterval(0.1f))
-            {
-                (base.Scene as Level).ParticlesFG.Emit(Refill.P_GlowTwo, 4, Position, Vector2.One * 12f);
+            if (Scene.OnInterval(0.1f)) {
+                SceneAs<Level>().ParticlesFG.Emit(Refill.P_GlowTwo, 4, Position, Vector2.One * 12f);
             }
         }
 
-        public static void Load()
-        {
-            On.Celeste.Player.RedBoost += Player_RedBoost;
-        }
-
-        public static void Unload()
-        {
-            On.Celeste.Player.RedBoost -= Player_RedBoost;
-        }
-
-        static void Player_RedBoost(On.Celeste.Player.orig_RedBoost orig, Player self, Booster booster)
-        {
+        private static void Player_RedBoost(On.Celeste.Player.orig_RedBoost orig, Player self, Booster booster) {
             orig(self, booster);
-            if (booster is DoubleRefillBooster)
-            {
+            if (booster is DoubleRefillBooster) {
                 self.UseRefill(true);
                 Audio.Play("event:/new_content/game/10_farewell/pinkdiamond_touch", booster.Position);
             }

@@ -1,30 +1,24 @@
-﻿using Microsoft.Xna.Framework;
-using Monocle;
-using MonoMod.Utils;
-using System.Collections.Generic;
-using Celeste.Mod.ShroomHelper.Effects;
+﻿using Celeste.Mod.ShroomHelper.Effects;
 using Celeste.Mod.ShroomHelper.Entities;
+using Microsoft.Xna.Framework;
+using Monocle;
 using System;
-using System.Reflection;
 
-
-namespace Celeste.Mod.ShroomHelper
-{
-    public class ShroomHelperModule : EverestModule
-    {
-
-        // Only one alive module instance can exist at any given time.
+namespace Celeste.Mod.ShroomHelper {
+    public class ShroomHelperModule : EverestModule {
         public static ShroomHelperModule Instance;
+        public static SpriteBank spriteBank;
 
-        public ShroomHelperModule()
-        {
+        public ShroomHelperModule() {
             Instance = this;
         }
 
+        public override Type SessionType => typeof(ShroomHelperSession);
+        public static ShroomHelperSession ShroomSession => (ShroomHelperSession)Instance._Session;
+
         // Set up any hooks, event handlers and your mod in general here.
         // Load runs before Celeste itself has initialized properly.
-        public override void Load()
-        {
+        public override void Load() {
             Everest.Events.Level.OnLoadBackdrop += Level_OnLoadBackdrop;
             DoubleRefillBooster.Load();
 
@@ -38,8 +32,7 @@ namespace Celeste.Mod.ShroomHelper
         }
 
         // Unload the entirety of your mod's content. Free up any native resources.
-        public override void Unload()
-        {
+        public override void Unload() {
             Everest.Events.Level.OnLoadBackdrop -= Level_OnLoadBackdrop;
             DoubleRefillBooster.Unload();
 
@@ -48,85 +41,65 @@ namespace Celeste.Mod.ShroomHelper
             Everest.Events.Level.OnTransitionTo -= Level_TransitionTo;
             On.Celeste.Player.StartDash -= Player_StartDash;
             On.Celeste.Player.RefillDash -= Player_RefillDash;
+            On.Celeste.Player.UseRefill -= Player_UseRefill;
             Everest.Events.Player.OnDie -= Player_OnDie;
         }
 
-        // sprite bank loading
-        public static SpriteBank spriteBank;
-        public override void LoadContent(bool firstLoad)
-        {
+        public override void LoadContent(bool firstLoad) {
             base.LoadContent(firstLoad);
             spriteBank = new SpriteBank(GFX.Game, "Graphics/ShroomHelper/Sprites.xml");
         }
 
-        private Backdrop Level_OnLoadBackdrop(MapData map, BinaryPacker.Element child, BinaryPacker.Element above)
-        {
-            if (child.Name.Equals("ShroomHelper/ShroomPetals", StringComparison.OrdinalIgnoreCase))
-            {
-                ShroomPetals shroomPetals = new ShroomPetals();
-                if (child.HasAttr("color"))
+        private Backdrop Level_OnLoadBackdrop(MapData map, BinaryPacker.Element child, BinaryPacker.Element above) {
+            if (child.Name.Equals("ShroomHelper/ShroomPetals", StringComparison.OrdinalIgnoreCase)) {
+                ShroomPetals shroomPetals = new();
+                if (child.HasAttr("color")) {
                     shroomPetals.shroomColor = child.Attr("color");
+                }
+
                 return shroomPetals;
             }
 
             return null;
         }
 
-        // One Dash Golden Session Logic
-        public override Type SessionType => typeof(ShroomHelperSession);
-        public static ShroomHelperSession ShroomSession => (ShroomHelperSession)Instance._Session;
-
-        private bool Level_OnLoadEntity(Level level, LevelData levelData, Vector2 offset, EntityData entityData)
-        {
-            if (entityData.Name == "ShroomHelper/OneDashWingedStrawberry")
-            {
-                if (level.Session.StartedFromBeginning && !ShroomSession.dashedTwice)
-                {
-                    return false;
-                } else
-                {
-                    return true;
-                }
+        private bool Level_OnLoadEntity(Level level, LevelData levelData, Vector2 offset, EntityData entityData) {
+            if (entityData.Name == "ShroomHelper/OneDashWingedStrawberry") {
+                return !level.Session.StartedFromBeginning || ShroomSession.dashedTwice;
             }
 
             return false; // false loads the entity, true de-spawns it
         }
 
         // only set session dashedTwice data on room transitions
-        public void Level_TransitionTo(Level level, LevelData next, Vector2 direction)
-        {
-            if (ShroomSession.brokeDashLimitInRoom)
-            {
+        private void Level_TransitionTo(Level level, LevelData next, Vector2 direction) {
+            if (ShroomSession.brokeDashLimitInRoom) {
                 RegisterDashedTwice();
                 ResetBrokeDashLimitInRoom();
             }
         }
 
-        private void Player_OnDie(Player player)
-        {
+        private void Player_OnDie(Player player) {
             ResetDashCounter();
             ResetBrokeDashLimitInRoom();
         }
 
-        private int Player_StartDash(On.Celeste.Player.orig_StartDash orig, Player self)
-        {
+        private int Player_StartDash(On.Celeste.Player.orig_StartDash orig, Player self) {
             orig(self);
             IncrementDashCounter();
-            if (ShroomSession.beforeRefillDashCount > 1)
-            {
+            if (ShroomSession.beforeRefillDashCount > 1) {
                 RegisterBrokeDashLimitInRoom();
             }
+
             return 2; // this method wants an int for some reason and it needs to be 2
         }
 
-        private bool Player_RefillDash(On.Celeste.Player.orig_RefillDash orig, Player self)
-        {
+        private bool Player_RefillDash(On.Celeste.Player.orig_RefillDash orig, Player self) {
             ResetDashCounter();
             return orig(self);
         }
 
-        private bool Player_UseRefill(On.Celeste.Player.orig_UseRefill orig, Player self, bool twoDashes)
-        {
+        private bool Player_UseRefill(On.Celeste.Player.orig_UseRefill orig, Player self, bool twoDashes) {
             ResetDashCounter();
             return orig(self, twoDashes);
         }

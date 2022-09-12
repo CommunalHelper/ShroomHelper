@@ -3,51 +3,42 @@ using Microsoft.Xna.Framework;
 using Monocle;
 using System.Collections.Generic;
 
-namespace Celeste.Mod.ShroomHelper.Entities
-{
+namespace Celeste.Mod.ShroomHelper.Entities {
     [CustomEntity("ShroomHelper/AttachedIceWall")]
     [Tracked(false)]
-    class AttachedIceWall : Entity
-    {
-        public new Facings Facing;
+    internal class AttachedIceWall : Entity {
+        public Facings Facing;
 
-        private int spriteOffset;
- 
-        private StaticMover staticMover;
-
-        private ClimbBlocker climbBlocker;
-
+        private readonly int spriteOffset;
+        private readonly StaticMover staticMover;
+        private readonly ClimbBlocker climbBlocker;
+        private readonly List<Sprite> tiles;
         private Vector2 imageOffset;
 
-        private List<Sprite> tiles;
-
         public AttachedIceWall(Vector2 position, float height, bool left, int offset)
-            : base(position)
-        {
+            : base(position) {
             spriteOffset = offset;
-            base.Tag = Tags.TransitionUpdate;
-            base.Depth = 1999;
-            staticMover = new StaticMover();
-            staticMover.OnShake = OnShake;
-            staticMover.OnAttach = delegate (Platform p)
-            {
-                base.Depth = p.Depth + 1;
+            Tag = Tags.TransitionUpdate;
+            Depth = 1999;
+            staticMover = new StaticMover {
+                OnShake = OnShake,
+                OnAttach = delegate (Platform p) {
+                    Depth = p.Depth + 1;
+                }
             };
 
-            if (left)
-            {
+            if (left) {
                 Facing = Facings.Left;
-                base.Collider = new Hitbox(2f, height);
-                staticMover.SolidChecker = ((Solid s) => CollideCheck(s, Position - Vector2.UnitX));
+                Collider = new Hitbox(2f, height);
+                staticMover.SolidChecker = (Solid s) => CollideCheck(s, Position - Vector2.UnitX);
                 Add(staticMover);
-            }
-            else
-            {
+            } else {
                 Facing = Facings.Right;
-                base.Collider = new Hitbox(2f, height, 6f);
-                staticMover.SolidChecker = ((Solid s) => CollideCheck(s, Position + Vector2.UnitX));
+                Collider = new Hitbox(2f, height, 6f);
+                staticMover.SolidChecker = (Solid s) => CollideCheck(s, Position + Vector2.UnitX);
                 Add(staticMover);
             }
+
             Add(climbBlocker = new ClimbBlocker(edge: false));
             tiles = BuildSprite(left);
 
@@ -55,78 +46,64 @@ namespace Celeste.Mod.ShroomHelper.Entities
             staticMover.OnDisable = OnDisable;
         }
 
-        private void OnEnable()
-        {
-            Visible = (Collidable = true);
-        }
-
-        private void OnDisable()
-        {
-            Collidable = false;
-            Visible = false;
-        }
-
-        private void OnShake(Vector2 amount)
-        {
-            imageOffset += amount;
-        }
-
         public AttachedIceWall(EntityData data, Vector2 offset)
-            : this(data.Position + offset, data.Height, data.Bool("left"), data.Int("spriteOffset", 1))
-        {
+            : this(data.Position + offset, data.Height, data.Bool("left"), data.Int("spriteOffset", 1)) {
         }
 
-        public override void Render()
-        {
+        public override void Added(Scene scene) {
+            base.Added(scene);
+            SetIceWalls();
+        }
+
+        public override void Update() {
+            if (!SceneAs<Level>().Transitioning) {
+                base.Update();
+            }
+        }
+
+        public override void Render() {
             Vector2 position = Position;
             Position += imageOffset;
             base.Render();
             Position = position;
         }
 
-        private List<Sprite> BuildSprite(bool left)
-        {
-            List<Sprite> list = new List<Sprite>();
-            for (int i = 0; (float)i < base.Height; i += 8)
-            {
-                string id = (i == 0) ? "WallBoosterTop" : ((!((float)(i + 16) > base.Height)) ? "WallBoosterMid" : "WallBoosterBottom");
+        private void OnEnable() {
+            Visible = Collidable = true;
+        }
+
+        private void OnDisable() {
+            Visible = Collidable = false;
+        }
+
+        private void OnShake(Vector2 amount) {
+            imageOffset += amount;
+        }
+
+        private List<Sprite> BuildSprite(bool left) {
+            List<Sprite> list = new();
+            for (int i = 0; i < Height; i += 8) {
+                string id = (i == 0) ? "WallBoosterTop" : ((!(i + 16 > Height)) ? "WallBoosterMid" : "WallBoosterBottom");
                 Sprite sprite = GFX.SpriteBank.Create(id);
-                if (!left)
-                {
+                if (!left) {
                     sprite.FlipX = true;
                     sprite.Position = new Vector2(4f + spriteOffset, i);
-                }
-                else
-                {
+                } else {
                     sprite.Position = new Vector2(0f - spriteOffset, i);
                 }
+
                 list.Add(sprite);
                 Add(sprite);
             }
+
             return list;
         }
 
-        public override void Added(Scene scene)
-        {
-            base.Added(scene);
-            SetIceWalls();
-        }
-
-        private void SetIceWalls()
-        {
+        private void SetIceWalls() {
             climbBlocker.Blocking = true;
-            tiles.ForEach(delegate (Sprite t)
-            {
+            tiles.ForEach(delegate (Sprite t) {
                 t.Play("ice");
             });
-        }
-
-        public override void Update()
-        {
-            if (!(base.Scene as Level).Transitioning)
-            {
-                base.Update();
-            }
         }
     }
 }
