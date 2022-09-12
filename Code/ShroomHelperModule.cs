@@ -1,6 +1,5 @@
 ﻿using Celeste.Mod.ShroomHelper.Effects;
 using Celeste.Mod.ShroomHelper.Entities;
-using Microsoft.Xna.Framework;
 using Monocle;
 using System;
 
@@ -14,35 +13,18 @@ namespace Celeste.Mod.ShroomHelper {
         }
 
         public override Type SessionType => typeof(ShroomHelperSession);
-        public static ShroomHelperSession ShroomSession => (ShroomHelperSession)Instance._Session;
+        public static ShroomHelperSession Session => (ShroomHelperSession)Instance._Session;
 
-        // Set up any hooks, event handlers and your mod in general here.
-        // Load runs before Celeste itself has initialized properly.
         public override void Load() {
-            Everest.Events.Level.OnLoadBackdrop += Level_OnLoadBackdrop;
             DoubleRefillBooster.Load();
-
-            // single dash golden
-            Everest.Events.Level.OnLoadEntity += Level_OnLoadEntity;
-            Everest.Events.Level.OnTransitionTo += Level_TransitionTo;
-            On.Celeste.Player.StartDash += Player_StartDash;
-            On.Celeste.Player.RefillDash += Player_RefillDash;
-            On.Celeste.Player.UseRefill += Player_UseRefill;
-            Everest.Events.Player.OnDie += Player_OnDie;
+            OneDashWingedStrawberry.Load();
+            Everest.Events.Level.OnLoadBackdrop += Level_OnLoadBackdrop;
         }
 
-        // Unload the entirety of your mod's content. Free up any native resources.
         public override void Unload() {
-            Everest.Events.Level.OnLoadBackdrop -= Level_OnLoadBackdrop;
             DoubleRefillBooster.Unload();
-
-            // single dash golden
-            Everest.Events.Level.OnLoadEntity -= Level_OnLoadEntity;
-            Everest.Events.Level.OnTransitionTo -= Level_TransitionTo;
-            On.Celeste.Player.StartDash -= Player_StartDash;
-            On.Celeste.Player.RefillDash -= Player_RefillDash;
-            On.Celeste.Player.UseRefill -= Player_UseRefill;
-            Everest.Events.Player.OnDie -= Player_OnDie;
+            OneDashWingedStrawberry.Unload();
+            Everest.Events.Level.OnLoadBackdrop -= Level_OnLoadBackdrop;
         }
 
         public override void LoadContent(bool firstLoad) {
@@ -62,55 +44,5 @@ namespace Celeste.Mod.ShroomHelper {
 
             return null;
         }
-
-        private bool Level_OnLoadEntity(Level level, LevelData levelData, Vector2 offset, EntityData entityData) {
-            if (entityData.Name == "ShroomHelper/OneDashWingedStrawberry") {
-                return !level.Session.StartedFromBeginning || ShroomSession.dashedTwice;
-            }
-
-            return false; // false loads the entity, true de-spawns it
-        }
-
-        // only set session dashedTwice data on room transitions
-        private void Level_TransitionTo(Level level, LevelData next, Vector2 direction) {
-            if (ShroomSession.brokeDashLimitInRoom) {
-                RegisterDashedTwice();
-                ResetBrokeDashLimitInRoom();
-            }
-        }
-
-        private void Player_OnDie(Player player) {
-            ResetDashCounter();
-            ResetBrokeDashLimitInRoom();
-        }
-
-        private int Player_StartDash(On.Celeste.Player.orig_StartDash orig, Player self) {
-            orig(self);
-            IncrementDashCounter();
-            if (ShroomSession.beforeRefillDashCount > 1) {
-                RegisterBrokeDashLimitInRoom();
-            }
-
-            return 2; // this method wants an int for some reason and it needs to be 2
-        }
-
-        private bool Player_RefillDash(On.Celeste.Player.orig_RefillDash orig, Player self) {
-            ResetDashCounter();
-            return orig(self);
-        }
-
-        private bool Player_UseRefill(On.Celeste.Player.orig_UseRefill orig, Player self, bool twoDashes) {
-            ResetDashCounter();
-            return orig(self, twoDashes);
-        }
-
-        private void RegisterDashedTwice() { ShroomSession.dashedTwice = true; }
-        private void ResetDashCheck() { ShroomSession.dashedTwice = false; }
-
-        private void ResetDashCounter() { ShroomSession.beforeRefillDashCount = 0; }
-        private void IncrementDashCounter() { ShroomSession.beforeRefillDashCount += 1; }
-
-        private void RegisterBrokeDashLimitInRoom() { ShroomSession.brokeDashLimitInRoom = true; }
-        private void ResetBrokeDashLimitInRoom() { ShroomSession.brokeDashLimitInRoom = false; }
     }
 }
