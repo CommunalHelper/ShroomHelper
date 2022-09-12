@@ -39,7 +39,7 @@ jobs:
     - name: Upload ZIP
       uses: actions/upload-artifact@v3
       with:
-        name: Anonhelper
+        name: ShroomHelper
         path: |
           Ahorn
           Code/bin
