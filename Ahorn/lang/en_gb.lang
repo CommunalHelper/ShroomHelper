@@ -1,0 +1,48 @@
+﻿# Attached Ice Wall
+placements.entities.ShroomHelper/AttachedIceWall.tooltips.left=If true the entity is facing left
+
+# Crumble Block on Touch
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.delay=How long (in seconds) until the block crumbles
+
+# Killer Heart Gate
+placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The minimum x-distance away from the entity maddie needs to be before it triggers closing.
+
+# Reality Distortion Field
+placements.entities.ShroomHelper/RealityDistortionField.tooltips.rippleAreaMultiplier=A multiplier for the intensity and size of the distortion effect.
+
+# Shroom Book Interaction
+placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.assetKey=points to which asset should be loaded in Graphics//Atlases//Gui
+
+# Shroom Dash Switch
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.persistent=Does the switch stay pressed during a game session
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.refillDashOnCollision=Refills the players dash when pressed
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.doubleDashRefill=Should the refill act as a double refill?
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.isWindTrigger=If enabled the switch will trigger a wind change on collision
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.windPatternOnCollision=Which direction the wind should go if collided with (only works if isWindTrigger is enabled)
+
+# Gradual Color Grade Change Trigger
+placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change
+placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)
+
+# Multilayer Music Fade Trigger
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1=name of the first parameter to be modified
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1From=the starting value of P1
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1To=the ending value of P1
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1Direction=the value change direction of P1
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2=name of the second parameter to be modified
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2From=the starting value of P2
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2To=the ending value of P2
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2Direction=the value change direction of P2
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3=name of the third parameter to be modified
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3From=the starting value of P3
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3To=the ending value of P3
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3Direction=the value change direction of P3
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.persistent=persist the state of the trigger throughout a session
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.destroyOnLeave=destroy the trigger upon being exited
+placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.trackEvent=the event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
+
+# Time Modulation Trigger
+placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The starting value of the time modulation
+placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation
+placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=Destroy the trigger when the player leaves it
+placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
