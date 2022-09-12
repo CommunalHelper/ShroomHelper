@@ -13,7 +13,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             : base(data.Position + offset) {
 
             Collider = new Hitbox(data.Width, data.Height);
-            assetKey = data.Attr("assetKey");
+            assetKey = data.Attr("assetKey", "shroompage");
 
             Vector2 drawAt = new(data.Width / 2, 0f);
             if (data.Nodes.Length != 0) {

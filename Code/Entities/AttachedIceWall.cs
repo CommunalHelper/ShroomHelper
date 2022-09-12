@@ -47,7 +47,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
         }
 
         public AttachedIceWall(EntityData data, Vector2 offset)
-            : this(data.Position + offset, data.Height, data.Bool("left"), data.Int("spriteOffset", 1)) {
+            : this(data.Position + offset, data.Height, data.Bool("left", true), data.Int("spriteOffset", 0)) {
         }
 
         public override void Added(Scene scene) {

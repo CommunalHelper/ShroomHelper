@@ -27,7 +27,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
         }
 
         public CrumbleBlockOnTouch(EntityData data, Vector2 offset, EntityID id)
-            : this(data.Position + offset, data.Char("tiletype", 'm'), data.Width, data.Height, data.Bool("blendin"), data.Bool("persistent"), data.Float("delay"), id) {
+            : this(data.Position + offset, data.Char("tiletype", 'm'), data.Width, data.Height, data.Bool("blendin", true), data.Bool("persistent"), data.Float("delay"), id) {
         }
 
         public override void Awake(Scene scene) {

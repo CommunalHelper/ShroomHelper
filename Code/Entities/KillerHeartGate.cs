@@ -30,8 +30,8 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             Requires = 1000;
             Add(new CustomBloom(RenderBloom));
             Size = data.Width;
-            customColor = data.Attr("customColor");
-            triggerDistance = data.Float("triggerDistance");
+            customColor = data.Attr("customColor", "18668f");
+            triggerDistance = data.Float("triggerDistance", 100f);
             openDistance = 32f;
             Vector2? vector = data.FirstNodeNullable(offset);
             startHidden = true;
