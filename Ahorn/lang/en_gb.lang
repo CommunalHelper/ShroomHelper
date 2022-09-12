@@ -20,6 +20,9 @@ placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.doubleDashRefill=Shou
 placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.isWindTrigger=If enabled the switch will trigger a wind change on collision
 placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.windPatternOnCollision=Which direction the wind should go if collided with (only works if isWindTrigger is enabled)
 
+# One Dash Winged Strawberry
+placements.entities.ShroomHelper/OneDashWingedStrawberry.tooltips.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
+
 # Gradual Color Grade Change Trigger
 placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change
 placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)

@@ -44,30 +44,37 @@ function Ahorn.selection(entity::ShroomDashSwitch)
     x, y = Ahorn.position(entity)
     side = get(entity.data, "side", false)
 
-    if side == "left"
+    if side == "right"
         return Ahorn.Rectangle(x, y - 1, 10, 16)
-    elseif side == "right"
-        return Ahorn.Rectangle(x - 2, y, 10, 16)
-    elseif side == "down"
-        return Ahorn.Rectangle(x, y, 16, 12)
+    elseif side == "left"
+        return Ahorn.Rectangle(x - 2, y - 1, 10, 16)
     elseif side == "up"
         return Ahorn.Rectangle(x, y - 4, 16, 12)
+    elseif side == "down"
+        return Ahorn.Rectangle(x, y, 16, 12)
     end
 end
 
 function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::ShroomDashSwitch, room::Maple.Room)
     sprite = get(entity.data, "sprite", "default")
     side = get(entity.data, "side", "up")
-    texture = "objects/temple/dashButton00.png"
+
+    texture = "objects/sh_dashswitch/dashButtonMirror00"
+
+    if (entity.refillDashOnCollision && entity.doubleDashRefill)
+        texture = "objects/sh_dashswitchdoublerefill/dashButtonMirror00"
+    elseif entity.refillDashOnCollision
+        texture = "objects/sh_dashswitchrefill/dashButtonMirror00"
+    end
 
     if side == "left"
-        Ahorn.drawSprite(ctx, texture, 20, 25, rot=pi)
+        Ahorn.drawSprite(ctx, texture, 8, 7)
     elseif side == "right"
-        Ahorn.drawSprite(ctx, texture, 8, 8)
-    elseif side == "up"
-        Ahorn.drawSprite(ctx, texture, 9, 20, rot=-pi / 2)
+        Ahorn.drawSprite(ctx, texture, 48, 55, rot=pi)
     elseif side == "down"
-        Ahorn.drawSprite(ctx, texture, 27, 7, rot=pi / 2)
+        Ahorn.drawSprite(ctx, texture, 8, 48, rot=-pi / 2)
+    elseif side == "up"
+        Ahorn.drawSprite(ctx, texture, 56, 8, rot=pi / 2)
     end
 end
 
