@@ -85,13 +85,17 @@ namespace Celeste.Mod.ShroomHelper.Entities {
 
         public bool HasPlayerLeaning() {
             Player player = Scene.Tracker.GetEntity<Player>();
-            if (player.Facing == Facings.Left && CollideCheck(player, Position + Vector2.UnitX)) {
-                return true;
-            } else if (player.Facing == Facings.Right && CollideCheck(player, Position - Vector2.UnitX)) {
-                return true;
-            } else {
-                return false;
+            if (player != null) {
+                if (player.Facing == Facings.Left && CollideCheck(player, Position + Vector2.UnitX)) {
+                    return true;
+                } 
+                
+                if (player.Facing == Facings.Right && CollideCheck(player, Position - Vector2.UnitX)) {
+                    return true;
+                }
             }
+
+            return false;
         }
 
         private bool PlayerBreakCheck() {
