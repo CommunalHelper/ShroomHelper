@@ -60,7 +60,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
 
         private static bool Level_OnLoadEntity(Level level, LevelData levelData, Vector2 offset, EntityData entityData) {
             if (entityData.Name == "ShroomHelper/OneDashWingedStrawberry") {
-                return !level.Session.StartedFromBeginning || ShroomHelperModule.Session.DashedTwice;
+                return !level.Session.StartedFromBeginning || ShroomHelperModule.Session.dashedTwice;
             }
 
             return false; // false loads the entity, true de-spawns it
@@ -68,46 +68,46 @@ namespace Celeste.Mod.ShroomHelper.Entities {
 
         // only set session dashedTwice data on room transitions
         private static void Level_TransitionTo(Level level, LevelData next, Vector2 direction) {
-            if (ShroomHelperModule.Session.BrokeDashLimitInRoom) {
-                ShroomHelperModule.Session.DashedTwice = true;
-                ShroomHelperModule.Session.BrokeDashLimitInRoom = false;
+            if (ShroomHelperModule.Session.brokeDashLimitInRoom) {
+                ShroomHelperModule.Session.dashedTwice = true;
+                ShroomHelperModule.Session.brokeDashLimitInRoom = false;
             }
         }
 
         private static void Player_OnDie(Player player) {
-            ShroomHelperModule.Session.BeforeRefillDashCount = 0;
-            ShroomHelperModule.Session.BrokeDashLimitInRoom = false;
+            ShroomHelperModule.Session.beforeRefillDashCount = 0;
+            ShroomHelperModule.Session.brokeDashLimitInRoom = false;
         }
 
         private static int Player_StartDash(On.Celeste.Player.orig_StartDash orig, Player self) {
             orig(self);
-            ShroomHelperModule.Session.BeforeRefillDashCount++;
-            if (ShroomHelperModule.Session.BeforeRefillDashCount > 1) {
-                ShroomHelperModule.Session.BrokeDashLimitInRoom = false;
+            ShroomHelperModule.Session.beforeRefillDashCount++;
+            if (ShroomHelperModule.Session.beforeRefillDashCount > 1) {
+                ShroomHelperModule.Session.brokeDashLimitInRoom = false;
             }
 
             return Player.StDash;
         }
 
         private static bool Player_RefillDash(On.Celeste.Player.orig_RefillDash orig, Player self) {
-            ShroomHelperModule.Session.BeforeRefillDashCount = 0;
+            ShroomHelperModule.Session.beforeRefillDashCount = 0;
             return orig(self);
         }
 
         private static bool Player_UseRefill(On.Celeste.Player.orig_UseRefill orig, Player self, bool twoDashes) {
-            ShroomHelperModule.Session.BeforeRefillDashCount = 0;
+            ShroomHelperModule.Session.beforeRefillDashCount = 0;
             return orig(self, twoDashes);
         }
 
         private void OnDash(Vector2 dir) {
-            if (ShroomHelperModule.Session.BrokeDashLimitInRoom) {
+            if (ShroomHelperModule.Session.brokeDashLimitInRoom) {
                 if (!baseData.Get<bool>("flyingAway") && !WaitingOnSeeds && Follower.Leader?.Entity is not Player) {
                     Depth = -1000000;
                     Add(new Coroutine(FlyAwayRoutine()));
                     baseData.Set("flyingAway", true);
 
                     if (despawnFromSessionIfDashedTwiceInSameRoom) {
-                        ShroomHelperModule.Session.DashedTwice = true;
+                        ShroomHelperModule.Session.dashedTwice = true;
                     }
                 }
             }

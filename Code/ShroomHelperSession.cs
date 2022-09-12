@@ -1,7 +1,7 @@
 ﻿namespace Celeste.Mod.ShroomHelper {
     public class ShroomHelperSession : EverestModuleSession {
-        public int BeforeRefillDashCount = 0;
-        public bool BrokeDashLimitInRoom = false;
-        public bool DashedTwice = false;
+        public int beforeRefillDashCount = 0;
+        public bool brokeDashLimitInRoom = false;
+        public bool dashedTwice = false;
     }
 }
