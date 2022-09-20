@@ -9,7 +9,7 @@ using ..Ahorn, Maple
 	height::Integer=Maple.defaultBlockHeight,
 	blendin::Bool=true,
 	persistent::Bool=false,
-	delay::Number=0.0
+	delay::Number=0.1
 )
 
 const placements = Ahorn.PlacementDict(

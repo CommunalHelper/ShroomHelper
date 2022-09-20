@@ -1,0 +1,8 @@
+mods.ShroomHelper.name=Shroom Helper
+
+# Crumble Block on touch
+entities.ShroomHelper/CrumbleBlockOnTouch.placements.name.crumble_block_on_touch=Crumble Block on Touch
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.blendin=Blends the block with the walls it touches, making it less apparent.
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Whether or not the block crumble is persistent.
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long (in seconds) until the block crumbles
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
