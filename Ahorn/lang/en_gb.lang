@@ -1,5 +1,6 @@
 ﻿# Attached Ice Wall
 placements.entities.ShroomHelper/AttachedIceWall.tooltips.left=If true the entity is facing left
+placements.entities.ShroomHelper/AttachedIceWall.tooltips.spriteOffset=Offset left or right from the default sprite position, positive is to the right, negative is left.
 
 # Crumble Block on Touch
 placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.delay=How long (in seconds) until the block crumbles

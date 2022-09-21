@@ -40,6 +40,7 @@ end
 
 function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::AttachedIceWall, room::Maple.Room)
     left = get(entity.data, "left", false)
+    offset = get(entity.data, "spriteOffset", 0)
 
     # Values need to be system specific integer
     x = Int(get(entity.data, "x", 0))
@@ -50,22 +51,22 @@ function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::AttachedIceWall, ro
 
     if left
         for i in 2:tileHeight - 1
-            Ahorn.drawImage(ctx, "objects/wallBooster/iceMid00", 0, (i - 1) * 8)
+            Ahorn.drawImage(ctx, "objects/wallBooster/iceMid00", 0 + -offset, (i - 1) * 8)
         end
 
-        Ahorn.drawImage(ctx, "objects/wallBooster/iceTop00", 0, 0)
-        Ahorn.drawImage(ctx, "objects/wallBooster/iceBottom00", 0, (tileHeight - 1) * 8)
+        Ahorn.drawImage(ctx, "objects/wallBooster/iceTop00", 0 + -offset, 0)
+        Ahorn.drawImage(ctx, "objects/wallBooster/iceBottom00", 0 + -offset, (tileHeight - 1) * 8)
 
     else
         Ahorn.Cairo.save(ctx)
         Ahorn.scale(ctx, -1, 1)
 
         for i in 2:tileHeight - 1
-            Ahorn.drawImage(ctx, "objects/wallBooster/iceMid00", -8, (i - 1) * 8)
+            Ahorn.drawImage(ctx, "objects/wallBooster/iceMid00", -8 + -offset, (i - 1) * 8)
         end
 
-        Ahorn.drawImage(ctx, "objects/wallBooster/iceTop00", -8, 0)
-        Ahorn.drawImage(ctx, "objects/wallBooster/iceBottom00", -8, (tileHeight - 1) * 8)
+        Ahorn.drawImage(ctx, "objects/wallBooster/iceTop00", -8 + -offset, 0)
+        Ahorn.drawImage(ctx, "objects/wallBooster/iceBottom00", -8 + -offset, (tileHeight - 1) * 8)
 
         Ahorn.restore(ctx)
     end

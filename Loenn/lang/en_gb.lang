@@ -1,5 +1,11 @@
 mods.ShroomHelper.name=Shroom Helper
 
+# Attached Ice Wall
+entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_left=Attached Ice Wall (left)
+entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_right=Attached Ice Wall (Right)
+entities.ShroomHelper/AttachedIceWall.attributes.description.left=If true the entity is facing left
+entities.ShroomHelper/AttachedIceWall.attributes.description.spriteOffset=Offset left or right from the default sprite position, positive is to the right, negative is left.
+
 # Crumble Block on touch
 entities.ShroomHelper/CrumbleBlockOnTouch.placements.name.crumble_block_on_touch=Crumble Block on Touch
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.blendin=Blends the block with the walls it touches, making it less apparent.
@@ -7,9 +13,15 @@ entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Whet
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long (in seconds) until the block crumbles
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
 
+# Killer Heart Gate
+
+# Reality Distortion Field
+
 # One Dash Winged Strawberry
 entities.ShroomHelper/OneDashWingedStrawberry.placements.name.one_dash_winged_strawberry=One Dash Winged Strawberry
 entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
+
+# Shroom Dash Switch
 
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
