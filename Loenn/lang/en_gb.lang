@@ -16,6 +16,8 @@ entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determ
 # Killer Heart Gate
 
 # Reality Distortion Field
+entities.ShroomHelper/RealityDistortionField.placements.name.reality_distortion_field=Reality Distortion Field
+entities.ShroomHelper/RealityDistortionField.attributes.description.rippleAreaMultiplier=A multiplier for the intensity and size of the distortion effect.
 
 # One Dash Winged Strawberry
 entities.ShroomHelper/OneDashWingedStrawberry.placements.name.one_dash_winged_strawberry=One Dash Winged Strawberry
