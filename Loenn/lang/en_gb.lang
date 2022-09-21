@@ -28,3 +28,6 @@ entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFrom
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=points to which asset should be loaded in Graphics//Atlases//Gui
+
+# Double Refill Booster
+entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=Double Refill Booster
