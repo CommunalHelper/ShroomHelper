@@ -6,3 +6,11 @@ entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.blendin=Blends 
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Whether or not the block crumble is persistent.
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long (in seconds) until the block crumbles
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
+
+# One Dash Winged Strawberry
+entities.ShroomHelper/OneDashWingedStrawberry.placements.name.one_dash_winged_strawberry=One Dash Winged Strawberry
+entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
+
+# Shroom Book Interaction
+entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
+entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=points to which asset should be loaded in Graphics//Atlases//Gui
