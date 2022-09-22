@@ -1,5 +1,9 @@
 mods.ShroomHelper.name=Shroom Helper
 
+# --- ---- ---
+# - Entities -
+# --- ---- ---
+
 # Attached Ice Wall
 entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_left=Attached Ice Wall (left)
 entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_right=Attached Ice Wall (Right)
@@ -37,16 +41,20 @@ entities.ShroomHelper/ShroomDashSwitch.attributes.description.windPatternOnColli
 
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
-entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=points to which asset should be loaded in Graphics//Atlases//Gui
+entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=Points to which asset should be loaded in Graphics//Atlases//Gui
 
 # Double Refill Booster
 entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=Double Refill Booster
+
+# --- ---- ---
+# - Triggers -
+# --- ---- ---
 
 # Gradual Change Colorgrade Trigger
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.placements.name.gradual_change_colorgrade_trigger=Gradual Change Colorgrade Trigger
 
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.speed=The rate at which the color grade should change
-triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=The color grade to fade to (located in Graphics//ColorGrading)
 
 # Time Modulation Trigger
 triggers.ShroomHelper/TimeModulationTrigger.placements.name.time_modulation_trigger=Time Modulation Trigger
@@ -55,4 +63,23 @@ triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeFrom=The 
 triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeTo=The ending value of the time modulation
 triggers.ShroomHelper/TimeModulationTrigger.attributes.description.destroyOnLeave=Destroy the trigger when the player leaves it
 triggers.ShroomHelper/TimeModulationTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.positionMode=Determines which direction the time modulates towards.
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.positionMode=Determines which direction the time modulates towards.'
+
+# Multilayer Music Fade Trigger
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.placements.name.multilayer_music_fade_trigger=Multilayer Music Fade Trigger
+
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1=Name of the first parameter to be modified
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1From=The starting value of P1
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1To=The ending value of P1
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1Direction=The value change direction of P1
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2=Name of the second parameter to be modified
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2From=The starting value of P2
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2To=The ending value of P2
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2Direction=The value change direction of P2
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3=Name of the third parameter to be modified
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3From=The starting value of P3
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3To=The ending value of P3
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3Direction=The value change direction of P3
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.destroyOnLeave=Destroy the trigger upon being exited
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.trackEvent=The event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
