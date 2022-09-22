@@ -45,9 +45,9 @@ function Ahorn.selection(entity::ShroomDashSwitch)
     side = get(entity.data, "side", false)
 
     if side == "right"
-        return Ahorn.Rectangle(x, y - 1, 10, 16)
+        return Ahorn.Rectangle(x, y, 10, 16)
     elseif side == "left"
-        return Ahorn.Rectangle(x - 2, y - 1, 10, 16)
+        return Ahorn.Rectangle(x - 2, y, 10, 16)
     elseif side == "up"
         return Ahorn.Rectangle(x, y - 4, 16, 12)
     elseif side == "down"
@@ -68,9 +68,9 @@ function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::ShroomDashSwitch, r
     end
 
     if side == "left"
-        Ahorn.drawSprite(ctx, texture, 8, 7)
+        Ahorn.drawSprite(ctx, texture, 8, 8)
     elseif side == "right"
-        Ahorn.drawSprite(ctx, texture, 48, 55, rot=pi)
+        Ahorn.drawSprite(ctx, texture, 48, 56, rot=pi)
     elseif side == "down"
         Ahorn.drawSprite(ctx, texture, 8, 48, rot=-pi / 2)
     elseif side == "up"

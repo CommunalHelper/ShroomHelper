@@ -24,6 +24,16 @@ entities.ShroomHelper/OneDashWingedStrawberry.placements.name.one_dash_winged_st
 entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
 
 # Shroom Dash Switch
+entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_up=Shroom Dash Switch (Up)
+entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_down=Shroom Dash Switch (Down)
+entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_left=Shroom Dash Switch (Left)
+entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_right=Shroom Dash Switch (Right)
+
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.persistent=Does the switch stay pressed during a game session
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.refillDashOnCollision=Refills the players dash when pressed
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.doubleDashRefill=Should the refill act as a double refill?
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.isWindTrigger=If enabled the switch will trigger a wind change on collision
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.windPatternOnCollision=Which direction the wind should go if collided with (only works if isWindTrigger is enabled)
 
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
