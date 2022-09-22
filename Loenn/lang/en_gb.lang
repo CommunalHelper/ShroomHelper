@@ -83,3 +83,12 @@ triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3Direct
 triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
 triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.destroyOnLeave=Destroy the trigger upon being exited
 triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.trackEvent=The event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
+
+# --- ---- ---
+# - Effects  -
+# --- ---- ---
+
+# Shroom Petals Effect
+style.effects.ShroomHelper/ShroomPetals.name=Petals (Custom)
+
+style.effects.ShroomHelper/ShroomPetals.description.color=The colour of the petals.

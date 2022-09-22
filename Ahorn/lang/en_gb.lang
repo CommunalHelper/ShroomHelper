@@ -62,3 +62,10 @@ placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The sta
 placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation
 placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=Destroy the trigger when the player leaves it
 placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
+
+# --- ---- ---
+# - Effects  -
+# --- ---- ---
+
+# Shroom Petals Effect
+placements.effects.ShroomHelper/ShroomPetals.tooltips.color=The colour of the petals.
