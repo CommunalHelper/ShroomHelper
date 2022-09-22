@@ -41,3 +41,8 @@ entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=poin
 
 # Double Refill Booster
 entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=Double Refill Booster
+
+# Gradual Change Colorgrade Trigger
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.placements.name.gradual_change_colorgrade_trigger=Gradual Change Colorgrade Trigger
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.speed=The rate at which the color grade should change
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)

@@ -29,28 +29,28 @@ placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.windPatternOnCollisio
 placements.entities.ShroomHelper/OneDashWingedStrawberry.tooltips.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
 
 # Gradual Color Grade Change Trigger
-placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change
-placements.entities.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)
+placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change
+placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)
 
 # Multilayer Music Fade Trigger
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1=name of the first parameter to be modified
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1From=the starting value of P1
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1To=the ending value of P1
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1Direction=the value change direction of P1
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2=name of the second parameter to be modified
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2From=the starting value of P2
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2To=the ending value of P2
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2Direction=the value change direction of P2
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3=name of the third parameter to be modified
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3From=the starting value of P3
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3To=the ending value of P3
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3Direction=the value change direction of P3
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.persistent=persist the state of the trigger throughout a session
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.destroyOnLeave=destroy the trigger upon being exited
-placements.entities.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.trackEvent=the event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1=name of the first parameter to be modified
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1From=the starting value of P1
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1To=the ending value of P1
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1Direction=the value change direction of P1
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2=name of the second parameter to be modified
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2From=the starting value of P2
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2To=the ending value of P2
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2Direction=the value change direction of P2
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3=name of the third parameter to be modified
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3From=the starting value of P3
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3To=the ending value of P3
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3Direction=the value change direction of P3
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.persistent=persist the state of the trigger throughout a session
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.destroyOnLeave=destroy the trigger upon being exited
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.trackEvent=the event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
 
 # Time Modulation Trigger
-placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The starting value of the time modulation
-placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation
-placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=Destroy the trigger when the player leaves it
-placements.entities.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The starting value of the time modulation
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=Destroy the trigger when the player leaves it
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
