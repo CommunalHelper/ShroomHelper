@@ -44,5 +44,15 @@ entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=
 
 # Gradual Change Colorgrade Trigger
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.placements.name.gradual_change_colorgrade_trigger=Gradual Change Colorgrade Trigger
+
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.speed=The rate at which the color grade should change
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=the color grade to fade to (located in Graphics//ColorGrading)
+
+# Time Modulation Trigger
+triggers.ShroomHelper/TimeModulationTrigger.placements.name.time_modulation_trigger=Time Modulation Trigger
+
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeFrom=The starting value of the time modulation
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeTo=The ending value of the time modulation
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.destroyOnLeave=Destroy the trigger when the player leaves it
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.positionMode=Determines which direction the time modulates towards.

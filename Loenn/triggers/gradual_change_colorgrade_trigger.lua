@@ -2,7 +2,7 @@ local enums = require("consts.celeste_enums")
 
 local gradual_change_colorgrade_trigger = {}
 
-gradual_change_colorgrade_trigger.name = "gradual_change_colorgrade_trigger"
+gradual_change_colorgrade_trigger.name = "ShroomHelper/GradualChangeColorGradeTrigger"
 
 gradual_change_colorgrade_trigger.fieldInformation = {
     colorGrade = {
