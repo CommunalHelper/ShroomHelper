@@ -11,7 +11,7 @@ const placements = Ahorn.PlacementDict(
 )
 
 function boosterSprite(entity::DoubleRefillBooster)
-	return "objects/sh_doublerefillbooster/plugin"
+    return "objects/sh_doublerefillbooster/plugin"
 end
 
 function Ahorn.selection(entity::DoubleRefillBooster)
