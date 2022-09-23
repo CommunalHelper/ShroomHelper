@@ -14,7 +14,8 @@ placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.delay=
 placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.tiletype=Determines the visual appearance of the wall.
 
 # Killer Heart Gate
-placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The minimum x-distance away from the entity maddie needs to be before it triggers closing.
+placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The minimum distance away from the Heart Gate the player needs to be before it triggers closing (in pixels).
+placements.entities.ShroomHelper/KillerHeartGate.tooltips.customColor=Color of the Heart Gate
 
 # Reality Distortion Field
 placements.entities.ShroomHelper/RealityDistortionField.tooltips.rippleAreaMultiplier=A multiplier for the intensity and size of the distortion effect.

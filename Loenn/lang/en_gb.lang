@@ -18,6 +18,10 @@ entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long 
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
 
 # Killer Heart Gate
+entities.ShroomHelper/KillerHeartGate.placements.name.killer_heart_gate=Killer Heart Gate
+
+entities.ShroomHelper/KillerHeartGate.attributes.description.triggerDistance=The minimum distance away from the Heart Gate the player needs to be before it triggers closing (in pixels).
+entities.ShroomHelper/KillerHeartGate.attributes.description.customColor=Color of the Heart Gate
 
 # Reality Distortion Field
 entities.ShroomHelper/RealityDistortionField.placements.name.reality_distortion_field=Reality Distortion Field
