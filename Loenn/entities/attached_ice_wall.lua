@@ -34,9 +34,6 @@ attached_ice_wall.placements = {
     }
 }
 
--- fun fact! the rest of this file is stolen nearly line for line from the plugin of the non-attached version from the base game
--- this code is really interesting and i like it. thanks cruor or vex idk who made it
-
 local iceTopTexture = "objects/wallBooster/iceTop00"
 local iceMiddleTexture = "objects/wallBooster/iceMid00"
 local iceBottomTexture = "objects/wallBooster/iceBottom00"
@@ -45,20 +42,37 @@ function attached_ice_wall.sprite(room, entity)
     local sprites = {}
 
     local left = entity.left
-    local fixedOffset = left and -entity.spriteOffset or entity.spriteOffset
+    local spriteOffset = entity.spriteOffset or 0
     local height = entity.height or 8
     local tileHeight = math.floor(height / 8)
-    local offsetX = left and 0 + fixedOffset or 8 + fixedOffset
-    local scaleX = left and 1 or -1
+    local offsetX = 0
+    local scaleX = 1
+    
+    if not entity.left then
+        offsetX = 8
+        scaleX = -1
+        spriteOffset = -spriteOffset
+    end
 
+    if spriteOffset ~= 0 then
+        add_ice_wall_sprite(entity, sprites, tileHeight, offsetX - spriteOffset, scaleX, 0.4)
+    end
+    
+    add_ice_wall_sprite(entity, sprites, tileHeight, offsetX, scaleX, 1.0)
+
+    return sprites
+end
+
+function add_ice_wall_sprite(entity, spriteTable, tileHeight, offsetX, scaleX, alpha)
     for i = 2, tileHeight - 1 do
         local middleSprite = drawableSprite.fromTexture(iceMiddleTexture, entity)
 
         middleSprite:addPosition(offsetX, (i - 1) * 8)
         middleSprite:setScale(scaleX, 1)
         middleSprite:setJustification(0.0, 0.0)
+        middleSprite:setColor({1.0, 1.0, 1.0, alpha})
 
-        table.insert(sprites, middleSprite)
+        table.insert(spriteTable, middleSprite)
     end
 
     local topSprite = drawableSprite.fromTexture(iceTopTexture, entity)
@@ -67,15 +81,15 @@ function attached_ice_wall.sprite(room, entity)
     topSprite:addPosition(offsetX, 0)
     topSprite:setScale(scaleX, 1)
     topSprite:setJustification(0.0, 0.0)
+    topSprite:setColor({1.0, 1.0, 1.0, alpha})
 
     bottomSprite:addPosition(offsetX, (tileHeight - 1) * 8)
     bottomSprite:setScale(scaleX, 1)
     bottomSprite:setJustification(0.0, 0.0)
+    bottomSprite:setColor({1.0, 1.0, 1.0, alpha})
 
-    table.insert(sprites, topSprite)
-    table.insert(sprites, bottomSprite)
-
-    return sprites
+    table.insert(spriteTable, topSprite)
+    table.insert(spriteTable, bottomSprite)
 end
 
 function attached_ice_wall.rectangle(room, entity)

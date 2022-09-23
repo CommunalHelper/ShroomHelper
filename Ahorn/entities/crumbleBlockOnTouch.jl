@@ -3,13 +3,13 @@
 using ..Ahorn, Maple
 
 @mapdef Entity "ShroomHelper/CrumbleBlockOnTouch" CrumbleBlockOnTouch(
-	x::Integer,
-	y::Integer,
-	width::Integer=Maple.defaultBlockWidth,
-	height::Integer=Maple.defaultBlockHeight,
-	blendin::Bool=true,
-	persistent::Bool=false,
-	delay::Number=0.1
+    x::Integer,
+    y::Integer,
+    width::Integer=Maple.defaultBlockWidth,
+    height::Integer=Maple.defaultBlockHeight,
+    blendin::Bool=true,
+    persistent::Bool=false,
+    delay::Number=0.1
 )
 
 const placements = Ahorn.PlacementDict(

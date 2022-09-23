@@ -7,29 +7,26 @@ local shroom_dash_switch = {}
 shroom_dash_switch.name = "ShroomHelper/ShroomDashSwitch"
 shroom_dash_switch.depth = 0
 
-local dash_switch_sides = {
-    "up",
-    "down",
-    "left",
-    "right"
-}
-
 shroom_dash_switch.fieldInformation = {
-    isWindTrigger = {
+    windPatternOnCollision = {
         options = enums.wind_patterns,
         editable = false
     },
     side = {
-        options = dash_switch_sides,
+        options = enums.dash_switch_sides,
         editable = false
     }
+}
+
+shroom_dash_switch.fieldOrder = { 
+    "x", "y", "side", "windPatternOnCollision", "refillDashOnCollision", "doubleDashRefill", "isWindTrigger", "persistent"
 }
 
 shroom_dash_switch.placements = {
     {
         name = "shroom_dash_switch_up",
         data = {
-            side = "up",
+            side = "Up",
             persistent = false,
             refillDashOnCollision = false,
             doubleDashRefill = false,
@@ -40,7 +37,7 @@ shroom_dash_switch.placements = {
     {
         name = "shroom_dash_switch_down",
         data = {
-            side = "down",
+            side = "Down",
             persistent = false,
             refillDashOnCollision = false,
             doubleDashRefill = false,
@@ -51,7 +48,7 @@ shroom_dash_switch.placements = {
     {
         name = "shroom_dash_switch_left",
         data = {
-            side = "left",
+            side = "Left",
             persistent = false,
             refillDashOnCollision = false,
             doubleDashRefill = false,
@@ -62,7 +59,7 @@ shroom_dash_switch.placements = {
     {
         name = "shroom_dash_switch_right",
         data = {
-            side = "right",
+            side = "Right",
             persistent = false,
             refillDashOnCollision = false,
             doubleDashRefill = false,
@@ -92,13 +89,13 @@ end
 function shroom_dash_switch.selection(room, entity)
     local side = entity.side
 
-    if side == "right" then
+    if side == "Right" then
         return utils.rectangle(entity.x - 2, entity.y - 1, 12, 18)
-    elseif side == "left" then
+    elseif side == "Left" then
         return utils.rectangle(entity.x - 2, entity.y - 1, 12, 18)
-    elseif side == "up" then
+    elseif side == "Up" then
         return utils.rectangle(entity.x - 1, entity.y - 2, 18, 12)
-    elseif side == "down" then
+    elseif side == "Down" then
         return utils.rectangle(entity.x - 1, entity.y - 2, 18, 12)
     end
 end
@@ -108,19 +105,19 @@ function shroom_dash_switch.sprite(room, entity)
 
     local switchSprite = drawableSprite.fromTexture(getSwitchTexture(entity), entity)
 
-    if side == "up" then
+    if side == "Up" then
         switchSprite:setJustification(0.5, 1)
         switchSprite:addPosition(-16, 8)
         switchSprite.rotation = math.pi / 2
-    elseif side == "right" then
+    elseif side == "Right" then
         switchSprite:setJustification(0, 0.5)
         switchSprite:addPosition(24, 8)
         switchSprite.rotation = math.pi
-    elseif side == "down" then
+    elseif side == "Down" then
         switchSprite:setJustification(0.5, 0)
         switchSprite:addPosition(-16, 0)
         switchSprite.rotation = -math.pi / 2
-    elseif side == "left" then
+    elseif side == "Left" then
         -- 
         switchSprite:setJustification(1, 0.5)
         switchSprite:addPosition(32, 8)

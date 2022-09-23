@@ -3,7 +3,6 @@ local drawableRectangle = require("structs.drawable_rectangle")
 local utils = require("utils")
 local drawing = require("utils.drawing")
 
-
 local killer_heart_gate = {}
 
 killer_heart_gate.name = "ShroomHelper/KillerHeartGate"
@@ -14,6 +13,7 @@ killer_heart_gate.fieldInformation = {
         fieldType = "color"
     }
 }
+
 killer_heart_gate.placements = { 
     name = "killer_heart_gate",
     data = {

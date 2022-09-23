@@ -1,27 +1,22 @@
 mods.ShroomHelper.name=Shroom Helper
 
-# --- ---- ---
-# - Entities -
-# --- ---- ---
-
 # Attached Ice Wall
 entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_left=Attached Ice Wall (left)
 entities.ShroomHelper/AttachedIceWall.placements.name.attached_ice_wall_right=Attached Ice Wall (Right)
-entities.ShroomHelper/AttachedIceWall.attributes.description.left=If true the entity is facing left
-entities.ShroomHelper/AttachedIceWall.attributes.description.spriteOffset=Offset left or right from the default sprite position, positive is to the right, negative is left.
+entities.ShroomHelper/AttachedIceWall.attributes.description.left=Whether the entity attaches to the left wall or not.
+entities.ShroomHelper/AttachedIceWall.attributes.description.spriteOffset=Offsets the sprite from the actual position. Positive moves it towards the attach point, negative moves it away from the attach point.
 
 # Crumble Block on touch
 entities.ShroomHelper/CrumbleBlockOnTouch.placements.name.crumble_block_on_touch=Crumble Block on Touch
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.blendin=Blends the block with the walls it touches, making it less apparent.
-entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Whether or not the block crumble is persistent.
-entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long (in seconds) until the block crumbles
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Once broken, the block will remain that way, even if the player dies.
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long until the block crumbles, in seconds.
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
 
 # Killer Heart Gate
 entities.ShroomHelper/KillerHeartGate.placements.name.killer_heart_gate=Killer Heart Gate
-
-entities.ShroomHelper/KillerHeartGate.attributes.description.triggerDistance=The minimum distance away from the Heart Gate the player needs to be before it triggers closing (in pixels).
-entities.ShroomHelper/KillerHeartGate.attributes.description.customColor=Color of the Heart Gate
+entities.ShroomHelper/KillerHeartGate.attributes.description.triggerDistance=The distance from the heart gate the player needs to be before it starts closing, in pixels.
+entities.ShroomHelper/KillerHeartGate.attributes.description.customColor=The hex color code of the heart gate.
 
 # Reality Distortion Field
 entities.ShroomHelper/RealityDistortionField.placements.name.reality_distortion_field=Reality Distortion Field
@@ -29,70 +24,61 @@ entities.ShroomHelper/RealityDistortionField.attributes.description.rippleAreaMu
 
 # One Dash Winged Strawberry
 entities.ShroomHelper/OneDashWingedStrawberry.placements.name.one_dash_winged_strawberry=One Dash Winged Strawberry
-entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
+entities.ShroomHelper/OneDashWingedStrawberry.attributes.name.despawnFromSessionIfDashedTwiceInSameRoom=Remove Same-Room Lenience
+entities.ShroomHelper/OneDashWingedStrawberry.attributes.description.despawnFromSessionIfDashedTwiceInSameRoom=If this option is checked, double-dashing in the same room as the berry will despawn it permanently. Otherwise, it will respawn on death.
 
 # Shroom Dash Switch
 entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_up=Shroom Dash Switch (Up)
 entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_down=Shroom Dash Switch (Down)
 entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_left=Shroom Dash Switch (Left)
 entities.ShroomHelper/ShroomDashSwitch.placements.name.shroom_dash_switch_right=Shroom Dash Switch (Right)
-
-entities.ShroomHelper/ShroomDashSwitch.attributes.description.persistent=Does the switch stay pressed during a game session
-entities.ShroomHelper/ShroomDashSwitch.attributes.description.refillDashOnCollision=Refills the players dash when pressed
-entities.ShroomHelper/ShroomDashSwitch.attributes.description.doubleDashRefill=Should the refill act as a double refill?
-entities.ShroomHelper/ShroomDashSwitch.attributes.description.isWindTrigger=If enabled the switch will trigger a wind change on collision
-entities.ShroomHelper/ShroomDashSwitch.attributes.description.windPatternOnCollision=Which direction the wind should go if collided with (only works if isWindTrigger is enabled)
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.side=The direction the switch is facing.
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.persistent=Once pressed, the switch will remain that way, even if the player dies.
+entities.ShroomHelper/ShroomDashSwitch.attributes.name.refillDashOnCollision=Refill Dash
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.refillDashOnCollision=Whether the switch should refill the player's dash when pressed.
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.doubleDashRefill=Whether the switch will act as a double dash refill. Only applies if "Refill Dash On Collision" is checked.
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.isWindTrigger=If enabled, the switch will trigger a wind change on collision.
+entities.ShroomHelper/ShroomDashSwitch.attributes.name.windPatternOnCollision=Wind Pattern
+entities.ShroomHelper/ShroomDashSwitch.attributes.description.windPatternOnCollision=The wind pattern to change to when the switch is pressed. Only applies if "Is Wind Trigger" is checked.
 
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
-entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=Points to which asset should be loaded in Graphics//Atlases//Gui
+entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=The image to display relative to Graphics/Atlases/Gui (do not include .png).
 
 # Double Refill Booster
 entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=Double Refill Booster
 
-# --- ---- ---
-# - Triggers -
-# --- ---- ---
-
 # Gradual Change Colorgrade Trigger
 triggers.ShroomHelper/GradualChangeColorGradeTrigger.placements.name.gradual_change_colorgrade_trigger=Gradual Change Colorgrade Trigger
-
-triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.speed=The rate at which the color grade should change
-triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=The color grade to fade to (located in Graphics//ColorGrading)
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.speed=The rate at which the color grade should change.
+triggers.ShroomHelper/GradualChangeColorGradeTrigger.attributes.description.colorGrade=The color grade to fade to. Custom color grades are relative to Graphics/ColorGrading (do not include .png).
 
 # Time Modulation Trigger
 triggers.ShroomHelper/TimeModulationTrigger.placements.name.time_modulation_trigger=Time Modulation Trigger
-
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeFrom=The starting value of the time modulation
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeTo=The ending value of the time modulation
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.destroyOnLeave=Destroy the trigger when the player leaves it
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
-triggers.ShroomHelper/TimeModulationTrigger.attributes.description.positionMode=Determines which direction the time modulates towards.'
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeFrom=The starting value of the time modulation.
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.timeTo=The ending value of the time modulation.
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.destroyOnLeave=If checked, the trigger will be disabled when the player first leaves it.
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.persistent=Remove the trigger permanently when the player first leaves it. Only applies if "Destroy On Leave" is set.
+triggers.ShroomHelper/TimeModulationTrigger.attributes.description.positionMode=Determines which direction the time modulates towards.
 
 # Multilayer Music Fade Trigger
 triggers.ShroomHelper/MultilayerMusicFadeTrigger.placements.name.multilayer_music_fade_trigger=Multilayer Music Fade Trigger
-
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1=Name of the first parameter to be modified
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1From=The starting value of P1
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1To=The ending value of P1
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1Direction=The value change direction of P1
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2=Name of the second parameter to be modified
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2From=The starting value of P2
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2To=The ending value of P2
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2Direction=The value change direction of P2
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3=Name of the third parameter to be modified
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3From=The starting value of P3
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3To=The ending value of P3
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3Direction=The value change direction of P3
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.persistent=Persist the state of the trigger throughout a session
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.destroyOnLeave=Destroy the trigger upon being exited
-triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.trackEvent=The event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
-
-# --- ---- ---
-# - Effects  -
-# --- ---- ---
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1=Name of the first parameter to be modified.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1From=The starting value of P1.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1To=The ending value of P1.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P1Direction=The direction of the fade for P1.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2=Name of the second parameter to be modified.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2From=The starting value of P2.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2To=The ending value of P2.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P2Direction=The direction of the fade for P2.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3=Name of the third parameter to be modified.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3From=The starting value of P3.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3To=The ending value of P3.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.P3Direction=The direction of the fade for P3.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.persistent=Remove the trigger permanently when the player first leaves it. Only applies if "Destroy On Leave" is set.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.destroyOnLeave=If checked, the trigger will be disabled when the player first leaves it.
+triggers.ShroomHelper/MultilayerMusicFadeTrigger.attributes.description.trackEvent=The event name for the music track. Leave blank to use the current event.
 
 # Shroom Petals Effect
 style.effects.ShroomHelper/ShroomPetals.name=Petals (Custom)
-
-style.effects.ShroomHelper/ShroomPetals.description.color=The colour of the petals.
+style.effects.ShroomHelper/ShroomPetals.description.color=The color of the petals.

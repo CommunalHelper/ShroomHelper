@@ -3,18 +3,18 @@
 using ..Ahorn, Maple
 
 @mapdef Entity "ShroomHelper/ShroomBookInteraction" ShroomBookInteraction(
-	x::Integer,
-	y::Integer,
-	width::Integer=Maple.defaultBlockWidth,
-	height::Integer=Maple.defaultBlockHeight, 
-	assetKey::String="shroompage"
+    x::Integer,
+    y::Integer,
+    width::Integer=Maple.defaultBlockWidth,
+    height::Integer=Maple.defaultBlockHeight, 
+    assetKey::String="shroompage"
 )
 
 const placements = Ahorn.PlacementDict(
     "Shroom Book Interaction (Shroom Helper)" => Ahorn.EntityPlacement(
         ShroomBookInteraction,
         "rectangle",
-		Dict{String, Any}()
+        Dict{String, Any}()
     ),
 )
 
@@ -34,7 +34,7 @@ function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::ShroomBookInteracti
     width = Int(get(entity.data, "width", 32))
     height = Int(get(entity.data, "height", 32))
     
-	rawColor = Ahorn.argb32ToRGBATuple(parse(Int, "6a0dad", base=16))[1:3] ./ 255
+    rawColor = Ahorn.argb32ToRGBATuple(parse(Int, "6a0dad", base=16))[1:3] ./ 255
     realColor = (rawColor..., 0.8)
 
     Ahorn.drawRectangle(ctx, 0, 0, width, height, realColor, (0.0, 0.0, 0.0, 0.0))

@@ -1,72 +1,64 @@
-﻿# --- ---- ---
-# - Entities -
-# --- ---- ---
-
-# Attached Ice Wall
-placements.entities.ShroomHelper/AttachedIceWall.tooltips.left=If true the entity is facing left
-placements.entities.ShroomHelper/AttachedIceWall.tooltips.spriteOffset=Offset left or right from the default sprite position, positive is to the right, negative is left.
+﻿# Attached Ice Wall
+placements.entities.ShroomHelper/AttachedIceWall.tooltips.left=Whether the entity attaches to the left wall or not.
+placements.entities.ShroomHelper/AttachedIceWall.tooltips.spriteOffset=Offsets the sprite from the actual position. Positive moves it towards the attach point, negative moves it away from the attach point.
 
 # Crumble Block on Touch
-placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.delay=How long (in seconds) until the block crumbles
-placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.blendin=Blends the block with the walls it touches, making it less apparent.
-placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.persistent=Whether or not the block crumble is persistent.
-placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.delay=How long (in seconds) until the block crumbles
-placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.description.tiletype=Determines the visual appearance of the wall.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.delay=How long until the block crumbles, in seconds.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.blendin=Blends the block with the walls it touches, making it less apparent.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.persistent=Once broken, the block will remain that way, even if the player dies.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.tiletype=Determines the visual appearance of the wall.
 
 # Killer Heart Gate
-placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The minimum distance away from the Heart Gate the player needs to be before it triggers closing (in pixels).
-placements.entities.ShroomHelper/KillerHeartGate.tooltips.customColor=Color of the Heart Gate
+placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The distance from the heart gate the player needs to be before it starts closing, in pixels.
+placements.entities.ShroomHelper/KillerHeartGate.tooltips.customColor=The hex color code of the heart gate.
 
 # Reality Distortion Field
 placements.entities.ShroomHelper/RealityDistortionField.tooltips.rippleAreaMultiplier=A multiplier for the intensity and size of the distortion effect.
 
 # Shroom Book Interaction
-placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.assetKey=Points to which asset should be loaded in Graphics//Atlases//Gui
+placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.assetKey=The image to display relative to Graphics/Atlases/Gui (do not include .png).
 
 # Shroom Dash Switch
-placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.persistent=Does the switch stay pressed during a game session
-placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.refillDashOnCollision=Refills the players dash when pressed
-placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.doubleDashRefill=Should the refill act as a double refill?
-placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.isWindTrigger=If enabled the switch will trigger a wind change on collision
-placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.windPatternOnCollision=Which direction the wind should go if collided with (only works if isWindTrigger is enabled)
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.side=The direction the switch is facing.
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.persistent=Once pressed, the switch will remain that way, even if the player dies.
+placements.entities.ShroomHelper/ShroomDashSwitch.names.refillDashOnCollision=Refill Dash
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.refillDashOnCollision=Whether the switch should refill the player's dash when pressed.
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.doubleDashRefill=Whether the switch will act as a double dash refill. Only applies if "Refill Dash On Collision" is checked.
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.isWindTrigger=If enabled, the switch will trigger a wind change on collision.
+placements.entities.ShroomHelper/ShroomDashSwitch.names.windPatternOnCollision=Wind Pattern
+placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.windPatternOnCollision=The wind pattern to change to when the switch is pressed. Only applies if "Is Wind Trigger" is checked.
 
 # One Dash Winged Strawberry
-placements.entities.ShroomHelper/OneDashWingedStrawberry.tooltips.despawnFromSessionIfDashedTwiceInSameRoom=Normally, if you dash twice in the same room as the golden winged strawberry, it will respawn if you retry in that room or die. Enabling this check will despawn the golden from the session if you dash twice in the same room as the golden.
-
-# --- ---- ---
-# - Triggers -
-# --- ---- ---
+placements.entities.ShroomHelper/OneDashWingedStrawberry.names.despawnFromSessionIfDashedTwiceInSameRoom=Remove Same-Room Lenience
+placements.entities.ShroomHelper/OneDashWingedStrawberry.tooltips.despawnFromSessionIfDashedTwiceInSameRoom=If this option is checked, double-dashing in the same room as the berry will despawn it permanently. Otherwise, it will respawn on death.
 
 # Gradual Color Grade Change Trigger
-placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change
-placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=The color grade to fade to (located in Graphics//ColorGrading)
+placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.speed=The rate at which the color grade should change.
+placements.triggers.ShroomHelper/GradualChangeColorGradeTrigger.tooltips.colorGrade=The color grade to fade to. Custom color grades are relative to Graphics/ColorGrading (do not include .png).
 
 # Multilayer Music Fade Trigger
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1=Name of the first parameter to be modified
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1From=The starting value of P1
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1To=The ending value of P1
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1Direction=The value change direction of P1
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2=Name of the second parameter to be modified
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2From=The starting value of P2
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2To=The ending value of P2
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2Direction=The value change direction of P2
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3=Name of the third parameter to be modified
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3From=The starting value of P3
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3To=The ending value of P3
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3Direction=The value change direction of P3
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.destroyOnLeave=Destroy the trigger upon being exited
-placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.trackEvent=The event name for the music track (can be blank if it is to remain the same event as whatever is currently active)
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1=Name of the first parameter to be modified.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1From=The starting value of P1.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1To=The ending value of P1.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P1Direction=The direction of the fade for P1.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2=Name of the second parameter to be modified.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2From=The starting value of P2.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2To=The ending value of P2.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P2Direction=The direction of the fade for P2.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3=Name of the third parameter to be modified.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3From=The starting value of P3.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3To=The ending value of P3.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.P3Direction=The direction of the fade for P3.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.persistent=Remove the trigger permanently when the player first leaves it. Only applies if "Destroy On Leave" is set.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.destroyOnLeave=If checked, the trigger will be disabled when the player first leaves it.
+placements.triggers.ShroomHelper/MultilayerMusicFadeTrigger.tooltips.trackEvent=The event name for the music track. Leave blank to use the current event.
 
 # Time Modulation Trigger
-placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The starting value of the time modulation
-placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation
-placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=Destroy the trigger when the player leaves it
-placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Persist the state of the trigger throughout a session
-
-# --- ---- ---
-# - Effects  -
-# --- ---- ---
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeFrom=The starting value of the time modulation.
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.timeTo=The ending value of the time modulation.
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.positionMode=Determines which direction the time modulates towards.
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.destroyOnLeave=If checked, the trigger will be disabled when the player first leaves it.
+placements.triggers.ShroomHelper/TimeModulationTrigger.tooltips.persistent=Remove the trigger permanently when the player first leaves it. Only applies if "Destroy On Leave" is set.
 
 # Shroom Petals Effect
-placements.effects.ShroomHelper/ShroomPetals.tooltips.color=The colour of the petals.
+placements.effects.ShroomHelper/ShroomPetals.tooltips.color=The color of the petals.

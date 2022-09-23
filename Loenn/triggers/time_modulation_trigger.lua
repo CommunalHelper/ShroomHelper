@@ -11,6 +11,10 @@ time_modulation_trigger.fieldInformation = {
     }
 }
 
+time_modulation_trigger.fieldOrder = { 
+    "x", "y", "width", "height", "timeFrom", "timeTo", "positionMode", "destroyOnLeave", "persistent" 
+}
+
 time_modulation_trigger.placements = {
     name = "time_modulation_trigger",
     data = {
