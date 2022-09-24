@@ -11,13 +11,12 @@ const placements = Ahorn.PlacementDict(
 )
 
 function boosterSprite(entity::DoubleRefillBooster)
-    return "objects/sh_doublerefillbooster/plugin"
+    return "objects/sh_doublerefillbooster/boosterPink00"
 end
 
 function Ahorn.selection(entity::DoubleRefillBooster)
     x, y = Ahorn.position(entity)
-    sprite = boosterSprite(entity)
-    return Ahorn.getSpriteRectangle(sprite, x, y)
+    return Ahorn.Rectangle(x - 9, y - 9, 18, 18)
 end
 
 function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::DoubleRefillBooster, room::Maple.Room)
