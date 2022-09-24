@@ -44,5 +44,6 @@ jobs:
           Ahorn
           Code/bin
           Graphics
+          Loenn
           everest.yaml
           !Code/bin/Debug
