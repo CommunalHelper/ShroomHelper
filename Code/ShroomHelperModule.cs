@@ -6,7 +6,6 @@ using System;
 namespace Celeste.Mod.ShroomHelper {
     public class ShroomHelperModule : EverestModule {
         public static ShroomHelperModule Instance;
-        public static SpriteBank spriteBank;
 
         public ShroomHelperModule() {
             Instance = this;
@@ -18,18 +17,15 @@ namespace Celeste.Mod.ShroomHelper {
         public override void Load() {
             DoubleRefillBooster.Load();
             OneDashWingedStrawberry.Load();
+            ShroomDashSwitch.Load();
             Everest.Events.Level.OnLoadBackdrop += Level_OnLoadBackdrop;
         }
 
         public override void Unload() {
             DoubleRefillBooster.Unload();
             OneDashWingedStrawberry.Unload();
+            ShroomDashSwitch.Unload();
             Everest.Events.Level.OnLoadBackdrop -= Level_OnLoadBackdrop;
-        }
-
-        public override void LoadContent(bool firstLoad) {
-            base.LoadContent(firstLoad);
-            spriteBank = new SpriteBank(GFX.Game, "Graphics/ShroomHelper/Sprites.xml");
         }
 
         private Backdrop Level_OnLoadBackdrop(MapData map, BinaryPacker.Element child, BinaryPacker.Element above) {

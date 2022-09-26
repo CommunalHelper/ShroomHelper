@@ -29,7 +29,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             base.Awake(scene);
             Sprite sprite = baseData.Get<Sprite>("sprite");
             Remove(sprite);
-            sprite = ShroomHelperModule.spriteBank.Create("ShroomHelperDoubleRefillBooster");
+            sprite = GFX.SpriteBank.Create("ShroomHelperDoubleRefillBooster");
             sprite.Play("loop");
             baseData.Set("sprite", sprite);
             Add(sprite);
