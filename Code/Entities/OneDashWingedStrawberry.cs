@@ -21,7 +21,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             baseData.Set("Golden", true);
             despawnFromSessionIfDashedTwiceInSameRoom = data.Bool("despawnFromSessionIfDashedTwiceInSameRoom", false);
             Remove(Get<DashListener>());
-            Add(new DashListener { OnDash = OnDash });
+            Add(new DashListener(OnDash));
         }
 
         public static void Load() {
@@ -60,7 +60,7 @@ namespace Celeste.Mod.ShroomHelper.Entities {
 
         private static bool Level_OnLoadEntity(Level level, LevelData levelData, Vector2 offset, EntityData entityData) {
             if (entityData.Name == "ShroomHelper/OneDashWingedStrawberry") {
-                return !level.Session.StartedFromBeginning || ShroomHelperModule.Session.dashedTwice;
+                return ShroomHelperModule.Session.dashedTwice || (!level.Session.StartedFromBeginning && !level.Session.IsGoldenBerryRestart());
             }
 
             return false; // false loads the entity, true de-spawns it
