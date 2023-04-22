@@ -12,6 +12,8 @@ entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.blendin=Blends 
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.persistent=Once broken, the block will remain that way, even if the player dies.
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.delay=How long until the block crumbles, in seconds.
 entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.tiletype=Determines the visual appearance of the wall.
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.description.destroyStaticMovers=Destroy attached entities when the block breaks.
+entities.ShroomHelper/CrumbleBlockOnTouch.attributes.name.destroyStaticMovers=Destroy Attached
 
 # Killer Heart Gate
 entities.ShroomHelper/KillerHeartGate.placements.name.killer_heart_gate=Killer Heart Gate

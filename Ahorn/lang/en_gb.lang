@@ -7,6 +7,8 @@ placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.delay=How long unt
 placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.blendin=Blends the block with the walls it touches, making it less apparent.
 placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.persistent=Once broken, the block will remain that way, even if the player dies.
 placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.tiletype=Determines the visual appearance of the wall.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.tooltips.destroyStaticMovers=Destroy attached entities when the block breaks.
+placements.entities.ShroomHelper/CrumbleBlockOnTouch.names.destroyStaticMovers=Destroy Attached
 
 # Killer Heart Gate
 placements.entities.ShroomHelper/KillerHeartGate.tooltips.triggerDistance=The distance from the heart gate the player needs to be before it starts closing, in pixels.
