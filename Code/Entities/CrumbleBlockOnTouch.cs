@@ -11,11 +11,12 @@ namespace Celeste.Mod.ShroomHelper.Entities {
         public float delay;
         public bool triggered;
         public bool blendIn;
+        public bool destroyStaticMovers;
 
         private readonly char tileType;
         private EntityID id;
 
-        public CrumbleBlockOnTouch(Vector2 position, char tileType, float width, float height, bool blendIn, bool persistent, float delay, EntityID id)
+        public CrumbleBlockOnTouch(Vector2 position, char tileType, float width, float height, bool blendIn, bool persistent, float delay, bool destroyStaticMovers, EntityID id)
             : base(position, width, height, safe: true) {
             Depth = -12999;
             this.id = id;
@@ -23,11 +24,12 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             this.blendIn = blendIn;
             this.delay = delay;
             permanent = persistent;
+            this.destroyStaticMovers = destroyStaticMovers;
             SurfaceSoundIndex = SurfaceIndex.TileToIndex[this.tileType];
         }
 
         public CrumbleBlockOnTouch(EntityData data, Vector2 offset, EntityID id)
-            : this(data.Position + offset, data.Char("tiletype", 'm'), data.Width, data.Height, data.Bool("blendin", true), data.Bool("persistent"), data.Float("delay"), id) {
+            : this(data.Position + offset, data.Char("tiletype", 'm'), data.Width, data.Height, data.Bool("blendin", true), data.Bool("persistent"), data.Float("delay"), data.Bool("destroyStaticMovers"), id) {
         }
 
         public override void Awake(Scene scene) {
@@ -78,6 +80,10 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             if (permanent) {
                 Level level = SceneAs<Level>();
                 level.Session.DoNotLoad.Add(id);
+            }
+
+            if (destroyStaticMovers) {
+                DestroyStaticMovers();
             }
 
             RemoveSelf();
