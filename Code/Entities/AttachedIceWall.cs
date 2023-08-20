@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Celeste.Mod.ShroomHelper.Entities {
     [CustomEntity("ShroomHelper/AttachedIceWall")]
     [Tracked(false)]
-    internal class AttachedIceWall : Entity {
+    public class AttachedIceWall : Entity {
         public Facings Facing;
 
         private readonly int spriteOffset;
