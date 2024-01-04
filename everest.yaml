@@ -1,5 +1,5 @@
 - Name: ShroomHelper
-  Version: 1.2.7
+  Version: 1.2.8
   DLL: Code/bin/ShroomHelper.dll
   Dependencies:
     - Name: Everest
