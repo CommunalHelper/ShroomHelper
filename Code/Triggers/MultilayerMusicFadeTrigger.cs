@@ -26,9 +26,9 @@ namespace Celeste.Mod.ShroomHelper.Triggers {
 
         private EntityID id;
 
-        public MultilayerMusicFadeTrigger(EntityData data, Vector2 offset) 
+        public MultilayerMusicFadeTrigger(EntityData data, Vector2 offset, EntityID eid) 
             : base(data, offset) {
-            id = new EntityID(data.Level.Name, data.ID);
+            id = eid;
 
             trackEvent = data.Attr("trackEvent", "");
 

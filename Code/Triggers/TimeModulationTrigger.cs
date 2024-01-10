@@ -14,9 +14,9 @@ namespace Celeste.Mod.ShroomHelper.Triggers {
 
         private EntityID id;
 
-        public TimeModulationTrigger(EntityData data, Vector2 offset)
+        public TimeModulationTrigger(EntityData data, Vector2 offset, EntityID eid)
             : base(data, offset) {
-            id = new EntityID(data.Level.Name, data.ID);
+            id = eid;
             timeFrom = data.Float("timeFrom", 1f);
             timeTo = data.Float("timeTo", 1f);
             PositionMode = data.Enum("positionMode", PositionModes.NoEffect);
