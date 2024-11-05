@@ -14,6 +14,15 @@ namespace Celeste.Mod.ShroomHelper.Entities {
             this.bookTextKey = bookTextKey;
         }
 
+        // Used to activate a ShroomBook externally (e.g. for Lua Cutscenes)
+        public static void Open(string assetKey) {
+            if (Engine.Scene.Tracker.GetEntity<Player>() is Player player) {
+                Engine.Scene.Add(new ShroomBook(player, assetKey));
+            } else {
+                Logger.Log(LogLevel.Warn, "ShroomHelper/ShroomBook", $"Could not open ShroomBook!");
+            }
+        }
+
         public override void OnBegin(Level level) {
             Add(new Coroutine(Routine()));
         }
