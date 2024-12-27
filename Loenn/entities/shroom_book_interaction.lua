@@ -9,7 +9,9 @@ shroom_book_interaction.placements = {
     data = {
         width = 8,
         height = 8,
-        assetKey = "shroompage"
+        assetKey = "shroompage",
+        enableFlag = "",
+        readFlag = ""
     }
 }
 

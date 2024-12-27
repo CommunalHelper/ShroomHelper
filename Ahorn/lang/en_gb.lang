@@ -19,6 +19,8 @@ placements.entities.ShroomHelper/RealityDistortionField.tooltips.rippleAreaMulti
 
 # Shroom Book Interaction
 placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.assetKey=The image to display relative to Graphics/Atlases/Gui (do not include .png).
+placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.enableFlag=If specified, the entity will only load when the flag is True. Use ! prefix to invert.
+placements.entities.ShroomHelper/ShroomBookInteraction.tooltips.readFlag=A flag to set when the player finishes reading. Use ! prefix to clear.
 
 # Shroom Dash Switch
 placements.entities.ShroomHelper/ShroomDashSwitch.tooltips.side=The direction the switch is facing.

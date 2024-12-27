@@ -46,6 +46,8 @@ entities.ShroomHelper/ShroomDashSwitch.attributes.description.windPatternOnColli
 # Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.placements.name.shroom_book_interaction=Shroom Book Interaction
 entities.ShroomHelper/ShroomBookInteraction.attributes.description.assetKey=The image to display relative to Graphics/Atlases/Gui (do not include .png).
+entities.ShroomHelper/ShroomBookInteraction.attributes.description.enableFlag=If specified, the entity will only load when the flag is True. Use ! prefix to invert.
+entities.ShroomHelper/ShroomBookInteraction.attributes.description.readFlag=A flag to set when the player finishes reading. Use ! prefix to clear.
 
 # Double Refill Booster
 entities.ShroomHelper/DoubleRefillBooster.placements.name.double_refill_booster=Double Refill Booster

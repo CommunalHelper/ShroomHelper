@@ -7,7 +7,9 @@ using ..Ahorn, Maple
     y::Integer,
     width::Integer=Maple.defaultBlockWidth,
     height::Integer=Maple.defaultBlockHeight, 
-    assetKey::String="shroompage"
+    assetKey::String="shroompage",
+    enableFlag::String="",
+    readFlag::String=""
 )
 
 const placements = Ahorn.PlacementDict(
